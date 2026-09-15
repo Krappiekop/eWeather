@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using eWeather.Backend.Models;
+using eWeather.Backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

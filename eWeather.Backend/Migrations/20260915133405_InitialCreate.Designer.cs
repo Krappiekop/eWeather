@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using eWeather.Backend.Models;
 
 #nullable disable
 
 namespace eWeather.Backend.Migrations
 {
     [DbContext(typeof(EWeatherContext))]
-    [Migration("20260910140825_InitialCreate")]
+    [Migration("20260915133405_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -19,7 +20,7 @@ namespace eWeather.Backend.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
-            modelBuilder.Entity("WeerMeting", b =>
+            modelBuilder.Entity("eWeather.Backend.Models.WeerMeting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

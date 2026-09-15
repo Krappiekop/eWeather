@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using eWeather.Frontend.Models;
+using eWeather.Shared.Models;
 
 namespace eWeather.Frontend.Pages;
 

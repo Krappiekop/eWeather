@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using eWeather.Backend.Models;
 
 #nullable disable
 
@@ -16,7 +17,7 @@ namespace eWeather.Backend.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
-            modelBuilder.Entity("WeerMeting", b =>
+            modelBuilder.Entity("eWeather.Backend.Models.WeerMeting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

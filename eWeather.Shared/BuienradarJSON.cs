@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-namespace eWeather.Frontend.Models;
+namespace eWeather.Shared.Models;
 public class BuienradarJSON
 {
     [JsonPropertyName("actual")]
