@@ -51,7 +51,11 @@ app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, EWeatherContext 
 .WithName("GetWeerData");
 
 app.Run();
+// models.cs moet allen models bevatten. Services opsplitsen naar apparte dir: /Services/
+// dataservice maken van de .mapget. het is best practice die code in de program.cs te hebben.
 
-
+// shared project maken voor "BuienradarJSON.cs". Deze staat nu namelijk in 
+// frontend (eWeather.Frontend/Models/BuienradarJSON.cs) en in Backend (eWeather.Backend/models/BuienradarJSON.cs) 
+// Moet in --> data transfer object.
 
 

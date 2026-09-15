@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using BuienRadar.Models;
+using eWeather.Frontend.Models;
 
-namespace BuienRadar.Pages;
+namespace eWeather.Frontend.Pages;
 
 public class IndexModel : PageModel
 {

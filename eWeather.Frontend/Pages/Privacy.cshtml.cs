@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BuienRadar.Pages;
+namespace eWeather.Frontend.Pages;
 
 public class PrivacyModel : PageModel
 {

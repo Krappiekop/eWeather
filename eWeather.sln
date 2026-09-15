@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuienRadar", "BuienRadar\BuienRadar.csproj", "{78AAB348-01C5-4BB3-ABC2-9E9515F1ACA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eWeather.Frontend", "eWeather.Frontend\eWeather.Frontend.csproj", "{78AAB348-01C5-4BB3-ABC2-9E9515F1ACA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eWeather.Backend", "eWeather.Backend\eWeather.Backend.csproj", "{0FAB4BFD-7E8F-4776-B0BA-570DA1C061DC}"
 EndProject
