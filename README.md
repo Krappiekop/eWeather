@@ -63,12 +63,12 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 - [x] EF Core en SQLite packages toegevoegd
 - [x] `DbContext` (`EWeatherContext`) opgezet en geregistreerd via dependency injection
 - [x] Migration aangemaakt en lokale SQLite database gegenereerd
-- [ ] Configuratiebestand voor polling interval en bewaarperiode (`appsettings.json`)
+- [x] Configuratiebestand voor polling interval en bewaarperiode (`appsettings.json`)
 - [x] `BackgroundService` bouwen voor periodieke Buienradar polling
 - [x] Opgehaalde data wegschrijven naar de database
-- [ ] Oude data buiten de bewaarperiode opruimen
-- [ ] `/weerdata` endpoint aanpassen zodat het echt uit de database leest, in plaats van voorbeelddata
-- [ ] Filteren op station, startdatum en einddatum in de databasequery
+- [x] Oude data buiten de bewaarperiode opruimen
+- [x] `/weerdata` endpoint aanpassen zodat het echt uit de database leest, in plaats van voorbeelddata
+- [x] Filteren op station, startdatum en einddatum in de databasequery
 - [ ] Volledige flow testen (polling, opslag, opvragen via API)
-- [ ] Koppeling met bestaande eWeather frontend (mogelijk buiten scope opdracht 2, apart oppakken)
+- [ ] Koppeling met bestaande eWeather frontend
 - [ ] README bijwerken met opstartinstructies voor de backend
