@@ -33,31 +33,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-
-
-app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, EWeatherContext context, string Station) =>
+app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, string Station, WeerDataService weerDataService) =>
 {
-    var effectiveEndDate = EndDate ?? StartDate.AddDays(7);
-    DateTime beginGrens = StartDate.ToDateTime(TimeOnly.MinValue);
-    DateTime eindGrens = effectiveEndDate.AddDays(1).ToDateTime(TimeOnly.MinValue);
-
-    var WeergaveGegevens = context.WeerMetingen
-        .Where(m => m.Station == Station
-            && m.Tijdstip >= beginGrens
-            && m.Tijdstip < eindGrens)
-        .OrderBy(m => m.Tijdstip)
-        .ToList();
-    return WeergaveGegevens;
+    return weerDataService.GetWeerData(StartDate, EndDate, Station);
 })
 .WithName("GetWeerData");
 
 app.Run();
-// models.cs moet allen models bevatten. Services opsplitsen naar apparte dir: /Services/
-// dataservice maken van de .mapget. het is best practice die code in de program.cs te hebben.
-
-// shared project maken voor "BuienradarJSON.cs". Deze staat nu namelijk in 
-// frontend (eWeather.Frontend/Models/BuienradarJSON.cs) en in Backend (eWeather.Backend/models/BuienradarJSON.cs) 
-// Moet in --> data transfer object.
-
-
