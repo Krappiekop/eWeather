@@ -37,7 +37,14 @@ app.UseHttpsRedirection();
 
 app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, string Station, [FromServices] WeerDataService weerDataService) =>
 {
-    return weerDataService.GetWeerData(StartDate, EndDate, Station);
+    if (EndDate is null || EndDate >= StartDate)
+    {
+        return Results.Ok(weerDataService.GetWeerData(StartDate, EndDate, Station));
+    }
+    else
+    {
+        return Results.BadRequest("Einddatum moet groter of gelijk zijn aan Begindatum.");
+    }
 })
 .WithName("GetWeerData");
 
