@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using eWeather.Backend.Models;
 using eWeather.Backend.Services;
 
@@ -12,6 +13,7 @@ builder.Services.AddDbContext<EWeatherContext>(options =>
     options.UseSqlite("Data Source=eweather.db"));
 
 builder.Services.AddHostedService<DataUploadService>();
+builder.Services.AddScoped<WeerDataService>();
 
 builder.Services.AddHttpClient("json", client => 
 { 
@@ -33,7 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, string Station, WeerDataService weerDataService) =>
+app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, string Station, [FromServices] WeerDataService weerDataService) =>
 {
     return weerDataService.GetWeerData(StartDate, EndDate, Station);
 })
