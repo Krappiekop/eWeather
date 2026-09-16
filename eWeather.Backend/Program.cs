@@ -48,4 +48,11 @@ app.MapGet("/weerdata", (DateOnly StartDate, DateOnly? EndDate, string Station, 
 })
 .WithName("GetWeerData");
 
+
+app.MapGet("/weerdata/actueel", ([FromServices] WeerDataService weerDataService) =>
+{
+    return weerDataService.GetActualWeerData();
+})
+.WithName("GetActueelWeerData");
+
 app.Run();

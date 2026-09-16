@@ -25,4 +25,12 @@ public class WeerDataService
             .OrderBy(m => m.Tijdstip)
             .ToList();
     }
+    public List<WeerMeting> GetActualWeerData()
+    {
+        return _context.WeerMetingen
+            .GroupBy(m => m.Station)
+            .Select(g => g.OrderByDescending(m => m.Tijdstip).First())
+            .ToList();
+    }
+
 }
