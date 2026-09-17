@@ -14,7 +14,7 @@ public class IndexModel : PageModel
     public string FoutMelding { get; set; }
 
     // Property waarin ik straks de opgehaalde JSON tekst opslaan, zodat de Razor pagina (Index.cshtml) deze via @Model.RuweData kan tonen.
-    public BuienradarJSON Data { get; set; }
+    public List<WeerMeting> Data { get; set; }
 
     // Constructor van IndexModel, wordt automatisch aangeroepen zodra ASP.NET Core een nieuwe IndexModel aanmaakt voor een bezoek aan de pagina.
     public IndexModel(IHttpClientFactory factory)
@@ -27,8 +27,8 @@ public class IndexModel : PageModel
     {
         try
         {
-            // Data = await _client.GetFromJsonAsync<WeerMeting>("weerdata/actueel");
-            Data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
+            Data = await _client.GetFromJsonAsync<List<WeerMeting>>("weerdata/actueel");
+            // Data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
         }
         catch (HttpRequestException)
         {

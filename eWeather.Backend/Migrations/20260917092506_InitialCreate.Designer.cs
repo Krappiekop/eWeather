@@ -11,7 +11,7 @@ using eWeather.Backend.Models;
 namespace eWeather.Backend.Migrations
 {
     [DbContext(typeof(EWeatherContext))]
-    [Migration("20260915133405_InitialCreate")]
+    [Migration("20260917092506_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace eWeather.Backend.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
-            modelBuilder.Entity("eWeather.Backend.Models.WeerMeting", b =>
+            modelBuilder.Entity("eWeather.Shared.Models.WeerMeting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,6 +34,10 @@ namespace eWeather.Backend.Migrations
 
                     b.Property<float>("RainFallLastHour")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("Regio")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Station")
                         .IsRequired()

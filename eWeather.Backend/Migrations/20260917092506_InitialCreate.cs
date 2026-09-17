@@ -19,6 +19,7 @@ namespace eWeather.Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Tijdstip = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Station = table.Column<string>(type: "TEXT", nullable: false),
+                    Regio = table.Column<string>(type: "TEXT", nullable: false),
                     Temperature = table.Column<float>(type: "REAL", nullable: false),
                     FeelTemperature = table.Column<float>(type: "REAL", nullable: false),
                     GroundTemperature = table.Column<float>(type: "REAL", nullable: false),

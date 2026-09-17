@@ -3,15 +3,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-// Registreert een HttpClient met de naam "json" bij de dependency injection container.
-// Overal in de applicatie kan ik deze specifieke client straks ophalen met IHttpClientFactory.CreateClient("json")
+
 builder.Services.AddHttpClient("WeerDataVerbinding", client => 
 { 
-    // BaseAddress is het vaste basisdeel van de url.
-    // Bij elke aanroep vanuit deze client geef ik straks alleen nog het resterende pad mee,
-    // bijvoorbeeld "2.0/feed/json", en dat wordt automatisch achter deze BaseAddress geplakt.
-    // client.BaseAddress = new Uri("http://localhost:5075/"); 
-    client.BaseAddress = new Uri("https://data.buienradar.nl/"); 
+    client.BaseAddress = new Uri("http://localhost:5075/"); 
+    // client.BaseAddress = new Uri("https://data.buienradar.nl/"); 
 });
 
 var app = builder.Build();

@@ -39,3 +39,17 @@ public class Stationmeasurement
     public string WindDirection { get; set; }
 
 }
+
+public class WeerMeting
+{
+    public int Id { get; set; }
+    public DateTime Tijdstip { get; set; }
+    public string Station { get; set; }
+    public string Regio { get; set; }
+    public float Temperature { get; set; }
+    public float FeelTemperature { get; set; }
+    public float GroundTemperature { get; set; }
+    public float SunPower { get; set; }
+    public float RainFallLastHour { get; set; }
+    public string? WindDirection { get; set; }
+}

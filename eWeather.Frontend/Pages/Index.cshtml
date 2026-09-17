@@ -5,12 +5,13 @@
 }
 
 @{
-    var dataIsOpgehaald = Model.Data?.Actual?.StationMeasurements != null;
+    var dataIsOpgehaald = Model.Data != null;
+    // var dataIsOpgehaald = Model.Data?.Actual?.StationMeasurements != null;
 }
 
 @{
-    // var gesorteerdeLijst = Model.Data.WeerMeting.OrderBy(c => c.Regio);
-    var gesorteerdeLijst = Model.Data.Actual.StationMeasurements.OrderBy(c => c.Regio);
+    var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
+    // var gesorteerdeLijst = Model.Data.Actual.StationMeasurements.OrderBy(c => c.Regio);
 }
 
 @if (Model.FoutMelding != null)
@@ -42,7 +43,8 @@
 
     @if (!string.IsNullOrEmpty(Model.GekozenWeerStation))
     {
-        var gekozenPlek = Model.Data.Actual.StationMeasurements
+        // var gekozenPlek = Model.Data.Actual.StationMeasurements
+        var gekozenPlek = Model.Data
             .FirstOrDefault(c => c.Regio == Model.GekozenWeerStation);
 
         <div class="cards-container">

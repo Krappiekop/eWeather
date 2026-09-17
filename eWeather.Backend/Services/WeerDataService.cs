@@ -1,6 +1,7 @@
 namespace eWeather.Backend.Services;
 
 using eWeather.Backend.Models;
+using eWeather.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class WeerDataService

@@ -61,14 +61,15 @@ body {
 
 /* de form waar de stad keuze knop in staat */
 .form-stad {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
+
 }
 
 /* Keuze meetstation knop uiterlijk */
 .dropdown-stad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
   height: 50px;
   width: 70%;
   padding-left: 25px;
@@ -77,6 +78,19 @@ body {
   border: 1px solid;
   font-family: "Helvetica Neue", Arial;
   font-size: 18px;
+}
+
+.button-stad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 30%;
+  background-color: var(--white);
+  border-radius: 25px;
+  border: 1px solid;
+  font-family: "Helvetica Neue", Arial;
+  font-size: 14px;
 }
 
 /* de container waar alle 6 de losse blokken meetgegevens in staan. */

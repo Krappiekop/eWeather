@@ -1,0 +1,80 @@
+﻿@page
+@model GeschiedenisModel
+@{
+    ViewData["Title"] = "Geschiedenis";
+}
+
+@{
+    var dataIsOpgehaald = Model.Data != null;
+}
+
+@{
+    var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
+}
+
+@if (Model.FoutMelding != null)
+{
+    <p class="fout">@Model.FoutMelding</p>
+}
+
+@if (dataIsOpgehaald)
+{
+    <form method="get" class="form-stad">
+        <select class="dropdown-stad" name="GekozenWeerStation">
+
+            <option value="">Kies een weerstation</option>
+            @foreach (var x in gesorteerdeLijst)
+            {
+                @if (Model.GekozenWeerStation != x.Station)
+                {
+                    <option value="@x.Station">@x.Regio</option>
+                }
+                else
+                {
+                    <option value="@x.Station" selected>@x.Regio</option>
+                }
+
+            }
+        </select>
+        @if (Model.StartDate != default)
+        {
+            <input type="date" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" />
+        }
+        else
+        {
+            <input type="date" name="StartDate" />
+        }
+
+        @if (Model.EndDate.HasValue)
+        {
+            <input type="date" name="EndDate" value="@Model.EndDate.Value.ToString("yyyy-MM-dd")" />
+        }
+        else
+        {
+            <input type="date" name="EndDate" />
+        }
+
+        <button class="button-stad" type="submit">Toon weerstation</button>
+    </form>
+
+
+    @if (Model.DataPeriodeStation != null && Model.DataPeriodeStation.Any())
+    {
+        // var gekozenPlek = Model.Data.Actual.StationMeasurements
+        var gekozenPlek = Model.DataPeriodeStation;
+        <table> 
+        @foreach (var x in gekozenPlek){
+            <tr><td>Tijdstip</td><td>@x.Tijdstip</td></tr>
+            <tr><td>Station</td><td>@x.Station</td></tr>
+            <tr><td>Regio</td><td>@x.Regio</td></tr>
+            <tr><td>temperatuur</td><td>@x.Temperature</td></tr>
+            <tr><td>gevoelstemperatuur</td><td>@x.FeelTemperature</td></tr>
+            <tr><td>grondtemperatuur</td><td>@x.GroundTemperature</td></tr>
+        }
+        </table>
+    }
+    else
+    {
+        <p>Kies een weerstation om de meting te zien.</p>
+    }
+}

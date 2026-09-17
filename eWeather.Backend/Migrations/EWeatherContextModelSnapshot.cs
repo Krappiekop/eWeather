@@ -17,7 +17,7 @@ namespace eWeather.Backend.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
-            modelBuilder.Entity("eWeather.Backend.Models.WeerMeting", b =>
+            modelBuilder.Entity("eWeather.Shared.Models.WeerMeting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
