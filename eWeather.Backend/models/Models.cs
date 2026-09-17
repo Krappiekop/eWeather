@@ -15,6 +15,7 @@ public class WeerMeting
     public int Id { get; set; }
     public DateTime Tijdstip { get; set; }
     public string Station { get; set; }
+    public string Regio { get; set; }
     public float Temperature { get; set; }
     public float FeelTemperature { get; set; }
     public float GroundTemperature { get; set; }

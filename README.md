@@ -69,6 +69,21 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 - [x] Oude data buiten de bewaarperiode opruimen
 - [x] `/weerdata` endpoint aanpassen zodat het echt uit de database leest, in plaats van voorbeelddata
 - [x] Filteren op station, startdatum en einddatum in de databasequery
-- [ ] Volledige flow testen (polling, opslag, opvragen via API)
-- [ ] Koppeling met bestaande eWeather frontend
-- [ ] README bijwerken met opstartinstructies voor de backend
+- [x] Volledige flow testen (polling, opslag, opvragen via API)
+
+### Opdracht 3
+
+Backend
+- [x] Controleer welke endpoints er al zijn in eWeather.Backend en of die voldoende zijn om de Frontend volledig te bedienen (actuele data per station en historische data over een periode)
+- [x] Indien de Frontend straks ook de "actuele" data per station nodig heeft (niet alleen een periode): nagaan of /weerdata dat al ondersteunt, of dat er een los endpoint bij moet
+- [ ] CORS instellen tussen Frontend en Backend indien nodig, afhankelijk van hoe ze straks los van elkaar draaien
+
+Frontend
+- [ ] Vervang de rechtstreekse aanroep naar data.buienradar.nl door een aanroep naar de eigen Backend
+- [ ] Ruim overbodige configuratie op die alleen voor de rechtstreekse Buienradar aanroep nodig was, als die niet meer gebruikt wordt
+- [ ] Bouw een nieuwe pagina voor de geschiedenis, los van de bestaande hoofdpagina
+- [ ] Hoofdpagina blijft de meest recente data uit de database tonen
+- [ ] Nieuwe pagina krijgt een periode-selectie (startdatum / einddatum)
+- [ ] Koppel de periode-selectie aan de Backend om de bijbehorende data op te halen
+- [ ] Voeg een grafiek toe die de weerdata over de geselecteerde periode toont (library nog te kiezen)
+- [ ] Voeg navigatie toe tussen de hoofdpagina en de nieuwe geschiedenispagina

@@ -28,6 +28,7 @@ public class DataUploadService : BackgroundService
                 {
                     Tijdstip = DateTime.UtcNow,
                     Station = s.StationName,
+                    Regio = s.Regio,
                     Temperature = s.Temperature,
                     FeelTemperature = s.FeelTemperature,
                     GroundTemperature = s.GroundTemperature,

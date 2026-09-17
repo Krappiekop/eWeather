@@ -20,13 +20,14 @@ public class IndexModel : PageModel
     public IndexModel(IHttpClientFactory factory)
     {
         // Haalt de specifieke client op die we in Program.cs hadden geregistreerd onder de naam "json", inclusief de BaseAddress die daar is ingesteld.
-        _client = factory.CreateClient("json");
+        _client = factory.CreateClient("WeerDataVerbinding");
     }
 
     public async Task OnGetAsync()
     {
         try
         {
+            // Data = await _client.GetFromJsonAsync<WeerMeting>("weerdata/actueel");
             Data = await _client.GetFromJsonAsync<BuienradarJSON>("2.0/feed/json");
         }
         catch (HttpRequestException)
