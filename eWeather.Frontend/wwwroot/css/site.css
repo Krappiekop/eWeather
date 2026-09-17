@@ -89,11 +89,18 @@ body {
   margin-left: 20px;
 }
 
-.mainContent{
+.mainContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 70%;
+}
+
+.grafiek-container {
+  width: 70%;
+  height: 400px;
+  margin: 0 auto;
 }
 
 /* de container waar alle 6 de losse blokken meetgegevens in staan. */
@@ -161,34 +168,30 @@ body {
     gap: 10px;
   }
 
+  /* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
+  .card-outer {
+    grid-template-columns: 40px auto;
+  }
 
-/* De outer card blok (dus de icoon met rechts ervan de meetgegeven/label) */
-.card-outer {
-  grid-template-columns: 40px auto;
-}
-
-
-/* de inner card blok (dus met de meetgegeven en label eronder) */
-/* .card-inner {
+  /* de inner card blok (dus met de meetgegeven en label eronder) */
+  /* .card-inner {
   display: flex;
   flex-direction: column;
   align-items: end;
 } */
 
-/* In het losse blok meetgegevens specifiek de gegevens uit de JSON (bijvoorbeeld de temperatuur) */
-.card-waarde {
-  font-family: "Helvetica Neue", Arial;
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--cyan);
-}
+  /* In het losse blok meetgegevens specifiek de gegevens uit de JSON (bijvoorbeeld de temperatuur) */
+  .card-waarde {
+    font-family: "Helvetica Neue", Arial;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--cyan);
+  }
 
-/* In het losse blok de naam van de specifieke meetgegeven */
-.card-label {
-  font-size: 8px;
-  color: var(--black);
-  font-weight: bold;
-}
-
-
+  /* In het losse blok de naam van de specifieke meetgegeven */
+  .card-label {
+    font-size: 8px;
+    color: var(--black);
+    font-weight: bold;
+  }
 }

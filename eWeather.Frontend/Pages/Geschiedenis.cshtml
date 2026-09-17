@@ -62,38 +62,51 @@
         </div>
     </form>
 
-
     @if (Model.DataPeriodeStation != null && Model.DataPeriodeStation.Any())
     {
-        // var gekozenPlek = Model.Data.Actual.StationMeasurements
-        var gekozenPlek = Model.DataPeriodeStation;
-        <div class=mainContent>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tijdstip</th>
-                        <th>temperatuur</th>
-                        <th>gevoelstemperatuur</th>
-                        <th>grondtemperatuur</th>
-                    </tr>
-                </thead>
-                @foreach (var x in gekozenPlek)
-                {
-                    <tr>
-                        <td>@x.Tijdstip.ToString("yyyy-MM-dd")</td>
-                        <td>@x.Temperature</td>
-                        <td>@x.FeelTemperature</td>
-                        <td>@x.GroundTemperature</td>
-                    </tr>
-                }
-            </table>
-        </div>
-
+        <div class="grafiek-container"><canvas id="temperatuurGrafiek"></canvas></div>
     }
     else
     {
         <div class=mainContent>
             <p>Kies een regio om de afgelopen metingen te zien.</p>
         </div>
+    }
+}
+
+@section Scripts {
+    @if (Model.DataPeriodeStation != null && Model.DataPeriodeStation.Any())
+    {
+        var jsonData = System.Text.Json.JsonSerializer.Serialize(Model.DataPeriodeStation);
+
+        <script>
+            const DataPeriodeStationJSON = @Html.Raw(jsonData);
+            const ctx = document.getElementById("temperatuurGrafiek");
+
+            new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: DataPeriodeStationJSON.map(d => d.Tijdstip),
+                    datasets: [
+                        {
+                            label: "Temperatuur",
+                            data: DataPeriodeStationJSON.map(d => d.Temperature)
+                        },
+                        {
+                            label: "Gevoels Temperatuur",
+                            data: DataPeriodeStationJSON.map(d => d.FeelTemperature)
+                        },
+                        {
+                            label: "Grond Temperatuur",
+                            data: DataPeriodeStationJSON.map(d => d.GroundTemperature)
+                        }
+
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false
+                }
+            });
+        </script>
     }
 }
