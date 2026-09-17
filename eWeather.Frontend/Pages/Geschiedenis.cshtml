@@ -36,25 +36,30 @@
 
             }
         </select>
-        @if (Model.StartDate != default)
-        {
-            <input type="date" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" />
-        }
-        else
-        {
-            <input type="date" name="StartDate" />
-        }
 
-        @if (Model.EndDate.HasValue)
-        {
-            <input type="date" name="EndDate" value="@Model.EndDate.Value.ToString("yyyy-MM-dd")" />
-        }
-        else
-        {
-            <input type="date" name="EndDate" />
-        }
+        <div>
+            <label for="StartDate">Van:</label>
+            @if (Model.StartDate != default)
+            {
+                
+                <input type="date" id="StartDate" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" />
+            }
+            else
+            {
+                <input type="date" id="StartDate" name="StartDate" />
+            }
+            <label for="EndDate">Tot:</label>
+            @if (Model.EndDate.HasValue)
+            {
+                <input type="date" id="EndDate" name="EndDate" value="@Model.EndDate.Value.ToString("yyyy-MM-dd")" />
+            }
+            else
+            {
+                <input type="date" id="EndDate" name="EndDate" />
+            }
 
-        <button class="button-stad" type="submit">Toon weerstation</button>
+            <button class="button-stad" type="submit">Toon weerstation</button>
+        </div>
     </form>
 
 
@@ -62,19 +67,30 @@
     {
         // var gekozenPlek = Model.Data.Actual.StationMeasurements
         var gekozenPlek = Model.DataPeriodeStation;
-        <table> 
-        @foreach (var x in gekozenPlek){
-            <tr><td>Tijdstip</td><td>@x.Tijdstip</td></tr>
-            <tr><td>Station</td><td>@x.Station</td></tr>
-            <tr><td>Regio</td><td>@x.Regio</td></tr>
-            <tr><td>temperatuur</td><td>@x.Temperature</td></tr>
-            <tr><td>gevoelstemperatuur</td><td>@x.FeelTemperature</td></tr>
-            <tr><td>grondtemperatuur</td><td>@x.GroundTemperature</td></tr>
-        }
-        </table>
+        <div class=mainContent>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tijdstip</th>
+                    <th>temperatuur</th>
+                    <th>gevoelstemperatuur</th>
+                    <th>grondtemperatuur</th>
+                </tr>
+            </thead>
+            @foreach (var x in gekozenPlek)
+            {
+                <tr>
+                    <td>@x.Tijdstip.ToString("yyyy-MM-dd")</td>
+                    <td>@x.Temperature</td>
+                    <td>@x.FeelTemperature</td>
+                    <td>@x.GroundTemperature</td>
+                </tr>
+            }
+        </table></div>
+
     }
     else
     {
-        <p>Kies een weerstation om de meting te zien.</p>
+        <div class=mainContent><p>Kies een weerstation om de meting te zien.</p></div>
     }
 }
