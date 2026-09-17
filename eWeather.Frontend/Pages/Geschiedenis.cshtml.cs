@@ -40,7 +40,7 @@ public class GeschiedenisModel : PageModel
             string startDatum = StartDate.ToString("yyyy-MM-dd");
             string? eindDatum = EndDate.HasValue ? EndDate.Value.ToString("yyyy-MM-dd") : null;
             string WeerStation = Uri.EscapeDataString(GekozenWeerStation);
-            
+
             string url = $"weerdata?StartDate={startDatum}";
             if (!string.IsNullOrWhiteSpace(eindDatum))
             {

@@ -80,10 +80,10 @@ Backend
 
 Frontend
 - [x] Vervang de rechtstreekse aanroep naar data.buienradar.nl door een aanroep naar de eigen Backend
-- [ ] Ruim overbodige configuratie op die alleen voor de rechtstreekse Buienradar aanroep nodig was, als die niet meer gebruikt wordt
-- [ ] Bouw een nieuwe pagina voor de geschiedenis, los van de bestaande hoofdpagina
+- [x] Ruim overbodige configuratie op die alleen voor de rechtstreekse Buienradar aanroep nodig was, als die niet meer gebruikt wordt
+- [x] Bouw een nieuwe pagina voor de geschiedenis, los van de bestaande hoofdpagina
 - [x] Hoofdpagina blijft de meest recente data uit de database tonen
-- [ ] Nieuwe pagina krijgt een periode-selectie (startdatum / einddatum)
-- [ ] Koppel de periode-selectie aan de Backend om de bijbehorende data op te halen
+- [x] Nieuwe pagina krijgt een periode-selectie (startdatum / einddatum)
+- [x] Koppel de periode-selectie aan de Backend om de bijbehorende data op te halen
 - [ ] Voeg een grafiek toe die de weerdata over de geselecteerde periode toont (library nog te kiezen)
-- [ ] Voeg navigatie toe tussen de hoofdpagina en de nieuwe geschiedenispagina
+- [x] Voeg navigatie toe tussen de hoofdpagina en de nieuwe geschiedenispagina

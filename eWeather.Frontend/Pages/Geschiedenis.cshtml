@@ -41,7 +41,7 @@
             <label for="StartDate">Van:</label>
             @if (Model.StartDate != default)
             {
-                
+
                 <input type="date" id="StartDate" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" />
             }
             else
@@ -68,29 +68,32 @@
         // var gekozenPlek = Model.Data.Actual.StationMeasurements
         var gekozenPlek = Model.DataPeriodeStation;
         <div class=mainContent>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tijdstip</th>
-                    <th>temperatuur</th>
-                    <th>gevoelstemperatuur</th>
-                    <th>grondtemperatuur</th>
-                </tr>
-            </thead>
-            @foreach (var x in gekozenPlek)
-            {
-                <tr>
-                    <td>@x.Tijdstip.ToString("yyyy-MM-dd")</td>
-                    <td>@x.Temperature</td>
-                    <td>@x.FeelTemperature</td>
-                    <td>@x.GroundTemperature</td>
-                </tr>
-            }
-        </table></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tijdstip</th>
+                        <th>temperatuur</th>
+                        <th>gevoelstemperatuur</th>
+                        <th>grondtemperatuur</th>
+                    </tr>
+                </thead>
+                @foreach (var x in gekozenPlek)
+                {
+                    <tr>
+                        <td>@x.Tijdstip.ToString("yyyy-MM-dd")</td>
+                        <td>@x.Temperature</td>
+                        <td>@x.FeelTemperature</td>
+                        <td>@x.GroundTemperature</td>
+                    </tr>
+                }
+            </table>
+        </div>
 
     }
     else
     {
-        <div class=mainContent><p>Kies een weerstation om de meting te zien.</p></div>
+        <div class=mainContent>
+            <p>Kies een regio om de afgelopen metingen te zien.</p>
+        </div>
     }
 }
