@@ -76,7 +76,7 @@ Weergegevens zijn afkomstig van [Buienradar.nl](https://www.buienradar.nl/), geb
 Backend
 - [x] Controleer welke endpoints er al zijn in eWeather.Backend en of die voldoende zijn om de Frontend volledig te bedienen (actuele data per station en historische data over een periode)
 - [x] Indien de Frontend straks ook de "actuele" data per station nodig heeft (niet alleen een periode): nagaan of /weerdata dat al ondersteunt, of dat er een los endpoint bij moet
-- [ ] CORS instellen tussen Frontend en Backend indien nodig, afhankelijk van hoe ze straks los van elkaar draaien
+
 
 Frontend
 - [x] Vervang de rechtstreekse aanroep naar data.buienradar.nl door een aanroep naar de eigen Backend
@@ -85,5 +85,5 @@ Frontend
 - [x] Hoofdpagina blijft de meest recente data uit de database tonen
 - [x] Nieuwe pagina krijgt een periode-selectie (startdatum / einddatum)
 - [x] Koppel de periode-selectie aan de Backend om de bijbehorende data op te halen
-- [ ] Voeg een grafiek toe die de weerdata over de geselecteerde periode toont (library nog te kiezen)
+- [x] Voeg een grafiek toe die de weerdata over de geselecteerde periode toont (library nog te kiezen)
 - [x] Voeg navigatie toe tussen de hoofdpagina en de nieuwe geschiedenispagina

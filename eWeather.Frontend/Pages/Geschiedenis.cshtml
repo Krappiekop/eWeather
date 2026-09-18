@@ -86,7 +86,12 @@
             new Chart(ctx, {
                 type: "line",
                 data: {
-                    labels: DataPeriodeStationJSON.map(d => d.Tijdstip),
+                    labels: DataPeriodeStationJSON.map(d => {
+                        const stukken = d.Tijdstip.split("T");
+                        const datum = stukken[0].slice(5);
+                        const tijd = stukken[1].slice(0, 5);
+                        return `${datum} ${tijd}`;
+                    }),
                     datasets: [
                         {
                             label: "Temperatuur",
@@ -100,11 +105,16 @@
                             label: "Grond Temperatuur",
                             data: DataPeriodeStationJSON.map(d => d.GroundTemperature)
                         }
-
                     ]
                 },
                 options: {
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 30
+                        }
+                    }
                 }
             });
         </script>
