@@ -9,11 +9,6 @@
     // var dataIsOpgehaald = Model.Data?.Actual?.StationMeasurements != null;
 }
 
-@{
-    var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
-    // var gesorteerdeLijst = Model.Data.Actual.StationMeasurements.OrderBy(c => c.Regio);
-}
-
 @if (Model.FoutMelding != null)
 {
     <p class="fout">@Model.FoutMelding</p>
@@ -21,6 +16,8 @@
 
 @if (dataIsOpgehaald)
 {
+    var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
+
     <form method="get" class="form-stad">
         <select class="dropdown-stad" name="GekozenWeerStation" onchange="this.form.submit()">
 
@@ -47,53 +44,64 @@
         var gekozenPlek = Model.Data
             .FirstOrDefault(c => c.Station == Model.GekozenWeerStation);
 
-        <div class="cards-container">
-            <div class="card-outer">
-                <i class="fa-solid fa-temperature-full"></i>
-                <div class="card-inner">
-                    <span class="card-waarde">@gekozenPlek?.Temperature</span>
-                    <span class="card-label">Actuele temperatuur</span>
+        if (gekozenPlek != null)
+        {
+            <div class="cards-container">
+                <div class="card-outer">
+                    <i class="fa-solid fa-temperature-full"></i>
+                    <div class="card-inner">
+                        <span class="card-waarde">@gekozenPlek.Temperature</span>
+                        <span class="card-label">Actuele temperatuur</span>
+                    </div>
+                </div>
+                <div class="card-outer">
+                    <i class="fa-solid fa-temperature-high"></i>
+                    <div class="card-inner">
+                        <span class="card-waarde">@gekozenPlek.FeelTemperature</span>
+                        <span class="card-label">Gevoelstemperatuur</span>
+                    </div>
+                </div>
+                <div class="card-outer">
+                    <i class="fa-solid fa-temperature-low"></i>
+                    <div class="card-inner">
+                        <span class="card-waarde">@gekozenPlek.GroundTemperature</span>
+                        <span class="card-label">Grond temperatuur</span>
+                    </div>
+                </div>
+                <div class="card-outer">
+                    <i class="fa-solid fa-sun"></i>
+                    <div class="card-inner">
+                        <span class="card-waarde">@gekozenPlek.SunPower</span>
+                        <span class="card-label">Zonnekracht</span>
+                    </div>
+                </div>
+                <div class="card-outer">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div class="card-inner">
+                        <span class="card-waarde">@(gekozenPlek.RainFallLastHour)</span>
+                        <span class="card-label">Regen laatste uur (mm)</span>
+                    </div>
+                </div>
+                <div class="card-outer">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="card-inner">
+                        <span class="card-waarde">@gekozenPlek.WindDirection</span>
+                        <span class="card-label">Windrichting</span>
+                    </div>
                 </div>
             </div>
-            <div class="card-outer">
-                <i class="fa-solid fa-temperature-high"></i>
-                <div class="card-inner">
-                    <span class="card-waarde">@gekozenPlek?.FeelTemperature</span>
-                    <span class="card-label">Gevoelstemperatuur</span>
-                </div>
+        }
+        else
+        {
+            <div class=mainContent>
+                <p>Geen actuele metingen beschikbaar voor het gekozen weerstation. Check de beschikbare weerstations.</p>
             </div>
-            <div class="card-outer">
-                <i class="fa-solid fa-temperature-low"></i>
-                <div class="card-inner">
-                    <span class="card-waarde">@gekozenPlek?.GroundTemperature</span>
-                    <span class="card-label">Grond temperatuur</span>
-                </div>
-            </div>
-            <div class="card-outer">
-                <i class="fa-solid fa-sun"></i>
-                <div class="card-inner">
-                    <span class="card-waarde">@gekozenPlek?.SunPower</span>
-                    <span class="card-label">Zonnekracht</span>
-                </div>
-            </div>
-            <div class="card-outer">
-                <i class="fa-solid fa-droplet"></i>
-                <div class="card-inner">
-                    <span class="card-waarde">@(gekozenPlek?.RainFallLastHour)</span>
-                    <span class="card-label">Regen laatste uur (mm)</span>
-                </div>
-            </div>
-            <div class="card-outer">
-                <i class="fa-solid fa-wind"></i>
-                <div class="card-inner">
-                    <span class="card-waarde">@gekozenPlek?.WindDirection</span>
-                    <span class="card-label">Windrichting</span>
-                </div>
-            </div>
-        </div>
+        }
     }
     else
     {
-        <div class=mainContent><p>Kies een regio om de actuele metingen te zien.</p></div>
+        <div class=mainContent>
+            <p>Kies een regio om de actuele metingen te zien.</p>
+        </div>
     }
 }

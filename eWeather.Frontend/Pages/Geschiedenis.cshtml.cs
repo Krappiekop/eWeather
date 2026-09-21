@@ -32,7 +32,7 @@ public class GeschiedenisModel : PageModel
         }
         catch (HttpRequestException)
         {
-            FoutMelding = "De gegevens van weerdata/actueel konden niet worden opgehaald, probeer het later opnieuw.";
+            FoutMelding = "De gegevens van /weerdata/actueel konden niet worden opgehaald. Check of de backend draait en probeer het later opnieuw.";
         }
 
         if (!string.IsNullOrWhiteSpace(GekozenWeerStation) && StartDate != default)
@@ -55,7 +55,7 @@ public class GeschiedenisModel : PageModel
             }
             catch (HttpRequestException)
             {
-                FoutMelding = "De gegevens van /weerdata konden niet worden opgehaald, probeer het later opnieuw.";
+                FoutMelding = "De gegevens van /weerdata konden niet worden opgehaald. Probeer het later opnieuw.";
             }
         }
     }

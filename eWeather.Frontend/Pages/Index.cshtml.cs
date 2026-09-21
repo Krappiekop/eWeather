@@ -32,7 +32,7 @@ public class IndexModel : PageModel
         }
         catch (HttpRequestException)
         {
-            FoutMelding = "De gegevens konden niet worden opgehaald, probeer het later opnieuw.";
+            FoutMelding = "De gegevens van /weerdata/actueel konden niet worden opgehaald. Check of de backend draait en probeer het later opnieuw.";
         }
     }
 }

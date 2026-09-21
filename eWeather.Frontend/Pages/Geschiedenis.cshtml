@@ -8,10 +8,6 @@
     var dataIsOpgehaald = Model.Data != null;
 }
 
-@{
-    var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
-}
-
 @if (Model.FoutMelding != null)
 {
     <p class="fout">@Model.FoutMelding</p>
@@ -19,6 +15,8 @@
 
 @if (dataIsOpgehaald)
 {
+    var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
+
     <form method="get" class="form-stad">
         <select class="dropdown-stad" name="GekozenWeerStation">
 

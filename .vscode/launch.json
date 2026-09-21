@@ -28,7 +28,7 @@
       "console": "integratedTerminal",
       "serverReadyAction": {
         "action": "openExternally",
-        "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+        "pattern": "\\bNow listening on:\\s+(https?://localhost:5158)",
         "uriFormat": "%s"
       },
       "env": {
