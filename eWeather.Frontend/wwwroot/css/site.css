@@ -146,6 +146,53 @@ body {
   font-weight: bold;
 }
 
+.stad-zoeker {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 20px
+}
+
+#stadInput {
+  height: 50px;
+  width: 100%;
+  padding-left: 25px;
+  background-color: var(--white);
+  border-radius: 25px;
+  border: 1px solid;
+  font-family: "Helvetica Neue", Arial;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.stad-opties {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: var(--white);
+  border: 1px solid;
+  border-radius: 15px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  z-index: 10;
+}
+
+.stad-opties li {
+  padding: 8px 25px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial;
+  font-size: 16px;
+}
+
+.stad-opties li:hover {
+  background-color: #f0f0f0;
+}
+
 /* Als het scherm minder breed is als 768px dan zal hetgeen hieronder toegepast worden. */
 @media (max-width: 768px) {
   html {

@@ -19,23 +19,11 @@
     var gesorteerdeLijst = Model.Data.OrderBy(c => c.Regio);
 
     <form method="get" class="form-stad">
-        <select class="dropdown-stad" name="GekozenWeerStation" onchange="this.form.submit()">
-
-            <option value="">Kies een weerstation</option>
-            @foreach (var x in gesorteerdeLijst)
-            {
-                @if (Model.GekozenWeerStation != x.Station)
-                {
-                    <option value="@x.Station">@x.Regio</option>
-                }
-                else
-                {
-                    <option value="@x.Station" selected>@x.Regio</option>
-                }
-
-            }
-        </select>
-        @* <button class="button-stad" type="submit">Toon weerstation</button> *@
+        <div class="stad-zoeker">
+            <input type="text" id="stadInput" placeholder="Kies een weerstation" autocomplete="off" />
+            <input type="hidden" id="stadHidden" name="GekozenWeerStation" value="@Model.GekozenWeerStation" />
+            <ul id="stadLijst" class="stad-opties"></ul>
+        </div>
     </form>
 
     @if (!string.IsNullOrEmpty(Model.GekozenWeerStation))
@@ -103,5 +91,15 @@
         <div class=mainContent>
             <p>Kies een regio om de actuele metingen te zien.</p>
         </div>
+    }
+}
+
+@section Scripts {
+    @if (Model.Data != null)
+    {
+        var DataStationJSON = System.Text.Json.JsonSerializer.Serialize(Model.Data);
+        <script>
+            initStadZoeker(@Html.Raw(DataStationJSON));
+        </script>
     }
 }
