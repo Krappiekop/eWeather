@@ -17,6 +17,9 @@
                 <a class="navbar-brand" asp-area="" asp-page="/Index" asp-route-GekozenWeerStation="@Model.GekozenWeerStation"><img class="logo" src="~/images/eweather-logo.png" alt="eWeather logo"></a>
                 <ul class="navbar-nav" flex-grow-1">
                     <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-route-GekozenWeerStation="@Model.GekozenWeerStation">Actueel</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Geschiedenis" asp-route-GekozenWeerStation="@Model.GekozenWeerStation">Geschiedenis</a>
                     </li>
                 </ul>
