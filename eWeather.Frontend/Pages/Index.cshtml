@@ -20,7 +20,14 @@
 
     <form method="get" class="form-stad">
         <div class="stad-zoeker">
-            <input type="text" id="stadInput" placeholder="Kies een weerstation" autocomplete="off" />
+            @if (Model.GekozenWeerStation == null)
+            {
+                <input type="text" id="stadInput" placeholder="Kies een weerstation" autocomplete="off" />
+            }
+            else
+            {
+                <input type="text" id="stadInput" placeholder="@Model.GekozenWeerStation" autocomplete="off" />
+            }
             <input type="hidden" id="stadHidden" name="GekozenWeerStation" value="@Model.GekozenWeerStation" />
             <ul id="stadLijst" class="stad-opties"></ul>
         </div>
